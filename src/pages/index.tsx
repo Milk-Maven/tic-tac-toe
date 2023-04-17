@@ -1,10 +1,11 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-// manually type everything from index.tsx into index2. As your typing write down any section of code you don't understand
+// manually type everything from index.tsx into index2.tsx. As you're typing write down any section of code you don't understand
 // additionally I left a handful of comments that start with QUESTION, when you see this look at the question and answer it in the file answers.txt
 // you will likely run into questions you do not have an answer for, in that scenario articulate what you don't understand into a question, then google it,
-// if you don't find the answer from your search word the question differently and ask again
+// if you don't find the answer from your search, word the question differently and ask again
+
 // QUESTION explain why we broke this out into its own variable (hint DRY)
 const DEFAULT_BOARD_LAYOUT = {
   0: "",
@@ -17,9 +18,12 @@ const DEFAULT_BOARD_LAYOUT = {
   7: "",
   8: "",
 };
+// EXTRA CREDIT: Keep track of how many games have been won by X and O and display it on screen
 // QUESTION: Explain what a react component is and its main sub parts (hint UI, State, Functions)
 const Home: NextPage = () => {
-  // QUESTION: Explain currentPlayer, setCurrentPlayer, and useState
+  // QUESTION: Explain currentPlayer
+  // QUESTION: Explain setCurrentPlayer
+  // QUESTION: Explain and useState
   const [currentPlayer, setCurrentPlayer] = useState("X");
   const [tiles, setTiles] = useState(DEFAULT_BOARD_LAYOUT);
   // QUESTION: explain what useEffect is with an empty dependency array
@@ -40,19 +44,20 @@ const Home: NextPage = () => {
 
   // QUESTION: when does this function get called?
   const checkForWin = () => {
+    // QUESTION: below you'll find most of the winning combinations for tic tac toe, find the missing combinations for 1 row, 1 column, and 1 diagonal
     // win combos:
     // horizontal
     // 0,1,2
-    // 3,4,5
+    // ?,?,?
     // 6,7,8
     // vertical
     // 0,3,6
-    // 1,4,7
+    // ?,?,?
     // 2,5,8
     // diagonal
-    // 0,4,8
+    // ?,?,?
     // 2,4,6
-    // mitch below you'll find an example to check for a horizontal pair. Please provide solutions for the other checks below
+    // WORK: mitch below you'll find an example to check for a horizontal pair. Please provide solutions for the other checks below
     // and remember if you catch yourself repeating code feel free to create a different function to refactor it into another function like we did with onTileClick
     if (tiles[0] === "X" && tiles[1] === "X" && tiles[2] === "X") {
       alert("X wins");
